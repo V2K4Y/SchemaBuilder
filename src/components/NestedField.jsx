@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Select, Button, Modal } from 'antd';
+import { Input, Select, Button } from 'antd';
 import { DeleteFilled } from '@ant-design/icons';
 import 'antd/dist/reset.css';
 const { Option } = Select;
@@ -15,17 +15,19 @@ const NestedField = ({ field, onChange, onDelete }) => {
     gap: 5,
     background: "#c9ada7",
     boxShadow: '0px 0px 10px rgba(32, 31, 31, 0.3)',
-    zIndex: 10,
   };
 
   return (
     <div style={divStyle}>
+
       <div style={{display: "flex", gap: 5}}>
+
         <Input
           placeholder='Field name'
           value={field.name}
           onChange={(e) => onChange({ ...field, name: e.target.value })}
         />
+
         <Select 
           style={{minWidth: 105}}
           placeholder="Type"
@@ -37,6 +39,7 @@ const NestedField = ({ field, onChange, onDelete }) => {
           <Option value="Number">Number</Option>
           <Option value="Nested">Nested</Option>
         </Select>
+
         <Button 
           type="primary" 
           danger 
@@ -46,9 +49,12 @@ const NestedField = ({ field, onChange, onDelete }) => {
         >
           Remove
         </Button>
+
       </div>
+
       {field.fields.map((nestedField, index) => (
         <div key={index} style={{ padding: -10, marginLeft: '25px', marginTop: 5, borderRadius: "10px"}}>
+          
           <NestedField
             field={nestedField}
             onChange={(newField) => {
@@ -62,9 +68,12 @@ const NestedField = ({ field, onChange, onDelete }) => {
               onChange({ ...field, fields: updatedFields });
             }}
           />
+
         </div>
       ))}
+
       {field.type === 'Nested' && (
+        
         <Button 
           type='primary'
           danger
@@ -73,7 +82,9 @@ const NestedField = ({ field, onChange, onDelete }) => {
         >
           + Add Nested Field
         </Button>
+        
       )}
+
     </div>
   );
 };
