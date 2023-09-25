@@ -38,7 +38,3 @@ const itemj = ['J', 'S', 'O','N','-','O', 'u', 't', 'p', 'u', 't'];
       </div>
       
     </div>
-  );
-};
-
-export default App;
