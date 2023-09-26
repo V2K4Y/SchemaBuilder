@@ -20,7 +20,7 @@ const NestedField = ({ field, onChange, onDelete }) => {
   return (
     <div style={divStyle}>
 
-      <div style={{display: "flex", gap: 5}}>
+      <div style={{display: "flex", gap: 5}} className='schema'>
 
         <Input
           placeholder='Field name'
